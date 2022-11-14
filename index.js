@@ -5,6 +5,13 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const generatePage = require('./src/template');
+const fs = require('fs');
+const path = require('path');
+
+const directory = path.resolve(__dirname, 'dist');
+const finalHTML = path.join(directory, 'index.html');
+
 const teamArray = [];
 
 const startup = () => {
@@ -61,6 +68,7 @@ const addTeam = () => {
                     break;
                 case 'Done':
                     console.log('all done!')
+                    createPage();
             }
         })
 ;}
@@ -130,5 +138,10 @@ const addIntern = () => {
             addTeam();
         })
 };
+
+const createPage = () => {
+    fs.writeFileSync(finalHTML, generatePage(teamArray), 'utf-8');
+    console.log('Page generated!');
+}
 
 startup();
