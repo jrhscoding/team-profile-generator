@@ -1,5 +1,10 @@
 const inquirer = require('inquirer');
 
+const Employee = require('./lib/Employee');
+const Manager = require('./lib/Manager');
+const Engineer = require('./lib/Engineer');
+const Intern = require('./lib/Intern');
+
 inquirer
     .prompt([
         {
@@ -23,6 +28,7 @@ inquirer
             message: 'What is your team managers office number'
         }
     ])
-    .then((response) => {
-        
+    .then((answer) => {
+        const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.managerOfficeNumber);
+        console.log(manager);
     })
