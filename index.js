@@ -63,8 +63,38 @@ const addEngineer = () => {
         ])
         .then((answers) => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-            
+
         })
-}
+};
+
+const addIntern = () => {
+    inquirer
+        .prompt ([
+            {
+                type: 'input',
+                name: 'internName',
+                message: 'What is your interns name?'
+            },
+            {
+                type: 'input',
+                name: 'internId',
+                message: 'What is your interns id?'
+            },
+            {
+                type: 'input',
+                name: 'internEmail',
+                message: 'What is youer interns email?'
+            },
+            {
+                type: 'input',
+                name: 'internSchool',
+                message: 'What school does your intern attend?'
+            }
+        ])
+        .then((answers) => {
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+
+        })
+};
 
 startup();
