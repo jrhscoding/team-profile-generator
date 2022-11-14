@@ -34,8 +34,33 @@ const startup = () => {
         .then((answer) => {
             const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.managerOfficeNumber);
             console.log(manager);
+            addTeam();
         })
 };
+
+const addTeam = () => {
+    inquirer    
+        .prompt([
+            {
+                type: 'list',
+                name: 'teamMember',
+                message: 'Which team member would you like to add?',
+                choices: ['Engineer', 'Intern', 'Done']
+            }
+        ])
+        .then((choice) => {
+            switch(choice.teamMember) {
+                case 'Engineer':
+                    addEngineer();
+                    break;
+                case 'Intern':
+                    addIntern();
+                    break;
+                case 'Done':
+                    console.log('all done!')
+            }
+        })
+;}
 
 const addEngineer = () => {
     inquirer
@@ -63,7 +88,8 @@ const addEngineer = () => {
         ])
         .then((answers) => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
-
+            console.log(engineer);
+            addTeam();
         })
 };
 
@@ -93,7 +119,8 @@ const addIntern = () => {
         ])
         .then((answers) => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
-
+            console.log(intern);
+            addTeam();
         })
 };
 
