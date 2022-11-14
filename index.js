@@ -37,4 +37,34 @@ const startup = () => {
         })
 };
 
+const addEngineer = () => {
+    inquirer
+        .prompt ([
+            {
+                type: 'input',
+                name: 'engineerName',
+                message: 'What is your engineers name?'
+            },
+            {
+                type: 'input',
+                name: 'engineerId',
+                message: 'What is your engineers id?'
+            },
+            {
+                type: 'input',
+                name: 'engineerEmail',
+                message: 'What is youer engineers email?'
+            },
+            {
+                type: 'input',
+                name: 'engineerGithub',
+                message: 'What is your engineers Github username?'
+            }
+        ])
+        .then((answers) => {
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            
+        })
+}
+
 startup();
