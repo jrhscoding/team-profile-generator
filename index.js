@@ -5,6 +5,7 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
+const teamArray = [];
 
 const startup = () => {
     console.log('Please fill out the managers information');
@@ -34,6 +35,8 @@ const startup = () => {
         .then((answer) => {
             const manager = new Manager(answer.managerName, answer.managerId, answer.managerEmail, answer.managerOfficeNumber);
             console.log(manager);
+            teamArray.push(manager);
+            console.log(teamArray);
             addTeam();
         })
 };
@@ -89,6 +92,8 @@ const addEngineer = () => {
         .then((answers) => {
             const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
             console.log(engineer);
+            teamArray.push(engineer);
+            console.log(teamArray);
             addTeam();
         })
 };
@@ -120,6 +125,8 @@ const addIntern = () => {
         .then((answers) => {
             const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
             console.log(intern);
+            teamArray.push(intern);
+            console.log(teamArray);
             addTeam();
         })
 };
