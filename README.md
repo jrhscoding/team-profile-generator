@@ -28,6 +28,8 @@
 
   ## Installation
   Upon downloading files run "npm i" to get all dependences. Run "npm test" to run the jest test and run "node index" to startup the application
+  Please watch the following video for a demonstration
+  [Installation demonstration](https://drive.google.com/file/d/1h9K2lWzxS2YyBu19EO9o63l5p_kkdC6U/view)
 
   ## Questions
   Visit my github repo here!
