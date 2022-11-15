@@ -31,6 +31,8 @@
   Please watch the following video for a demonstration
   [Installation demonstration](https://drive.google.com/file/d/1h9K2lWzxS2YyBu19EO9o63l5p_kkdC6U/view)
 
+  [Link to Github repo](https://github.com/jrhscoding/team-profile-generator)
+
   ## Questions
   Visit my github repo here!
   https://github.com/jrhscoding
