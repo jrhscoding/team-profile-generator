@@ -1,10 +1,10 @@
 const generateCards = team => {
     const managerCard = manager => {
         return `
-        <div class="card">
+        <div class="card mx-2 my-1">
             <div class="card-header">
                 <h2 class="card-title">${manager.getName()}</h2>
-                <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i> ${manager.getRole()}</h3>
+                <h3 class="card-title">${manager.getRole()}</h3>
             </div>
             <div class="card-body">
                 <ul class ="list-group">
@@ -20,10 +20,10 @@ const generateCards = team => {
 
     const engineerCard = engineer => {
         return `
-        <div class="card">
+        <div class="card mx-2 my-1">
             <div class="card-header">
                 <h2 class="card-title">${engineer.getName()}</h2>
-                <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i> ${engineer.getRole()}</h3>
+                <h3 class="card-title">${engineer.getRole()}</h3>
             </div>
             <div class="card-body">
                 <ul class ="list-group">
@@ -39,10 +39,10 @@ const generateCards = team => {
 
     const internCard = intern => {
         return `
-        <div class="card">
+        <div class="card mx-2 my-1">
             <div class="card-header">
                 <h2 class="card-title">${intern.getName()}</h2>
-                <h3 class="card-title"><i class="fas fa-mug-hot mr-2"></i> ${intern.getRole()}</h3>
+                <h3 class="card-title">${intern.getRole()}</h3>
             </div>
             <div class="card-body">
                 <ul class ="list-group">
@@ -56,20 +56,21 @@ const generateCards = team => {
         `
     }
 
-    const html = [];
+    const teamHTML = [];
 
-    html.push(team
+    teamHTML.push(team
         .filter(employee => employee.getRole() === 'Manager')
-        .map(manager => managerCard(manager)));
-    html.push(team
+        .map(manager => managerCard(manager))
+        .join(''));
+    teamHTML.push(team
         .filter(employee => employee.getRole() === 'Engineer')
         .map(engineer => engineerCard(engineer))
         .join(''));
-    html.push(team
+    teamHTML.push(team
         .filter(employee => employee.getRole() === 'Intern')
         .map(intern => internCard(intern))
         .join(''));
-    return html.join('')
+    return teamHTML.join('')
 };
 
 module.exports = team => {
